@@ -1,8 +1,32 @@
 import React from "react";
+import Card from "../common/Card";
+
+const cards = [
+  {
+    name: "Accounts",
+    className: "bg-[#22322D] text-[#CEE9DF] bottom-64 left-96 -rotate-6",
+  },
+  {
+    name: "Payments",
+    className: "bg-[#CEE9DF] text-[#22322D] bottom-60 right-80 rotate-3",
+  },
+  {
+    name: "Cards",
+    className: "bg-[#EED9BE] text-[#D05F0C] bottom-40 rotate-3",
+  },
+  {
+    name: "Cards",
+    className: "bg-[#D05F0C] text-white bottom-16 left-96",
+  },
+  {
+    name: "Savings + Investment",
+    className: "bg-[#22322D] text-[#CEE9DF] bottom-16 right-80",
+  },
+];
 
 const Hero = () => {
   return (
-    <div className="min-h-screen w-full pt-10 flex items-center flex-col relative bg--300">
+    <div className="min-h-screen w-full pt-10 flex items-center flex-col relative px-4">
       <div className="text-center w-[60%] flex items-center flex-col gap-6">
         <p className="text-6xl">The easiest way to build financial products.</p>
         <p className="w-[65%] text-sm text-gray-600">
@@ -26,21 +50,13 @@ const Hero = () => {
         </div>
       </div>
       <div className="bg-blue-00 h-full w-full absolute bg--50 top-0 left-0 pointer-events-none justify-center items-center flex-col flex">
-        <div className="w-80 h-20 bg-[#22322D] text-[#CEE9DF] flex items-center justify-start px-10 rounded-xl absolute bottom-64 left-96 -rotate-6">
-          <p>Accounts</p>
-        </div>
-        <div className="w-80 h-20 bg-[#CEE9DF] text-[#22322D] flex items-center justify-start px-10 rounded-xl absolute bottom-60 right-80 rotate-3">
-          <p>Payments</p>
-        </div>
-        <div className="w-80 h-20 bg-[#EED9BE] text-[#D05F0C] flex items-center justify-start px-10 rounded-xl absolute bottom-40 rotate-3">
-          <p>Cards</p>
-        </div>
-        <div className="w-80 h-20 bg-[#D05F0C] text-white flex items-center justify-start px-10 rounded-xl absolute bottom-16 left-96 ">
-          <p>Cards</p>
-        </div>
-        <div className="w-80 h-20 bg-[#22322D] text-[#CEE9DF] flex items-center justify-start px-10 rounded-xl absolute bottom-16 right-80 ">
-          <p>Savings + Investment</p>
-        </div>
+        {cards.map(({ name, className }, index) => {
+          return (
+            <Card className={className} key={`hero-${name}-${index}`}>
+              {name}
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
