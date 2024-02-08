@@ -15,7 +15,7 @@ const cards = [
     className: "bg-[#EED9BE] text-[#D05F0C] bottom-40 rotate-3",
   },
   {
-    name: "Cards",
+    name: "Credit",
     className: "bg-[#D05F0C] text-white bottom-16 left-96",
   },
   {
@@ -33,7 +33,7 @@ const Hero = () => {
           Anchor provides the complete infrastructure needed for businesses to
           build, launch, and scale banking and payment products.
         </p>
-        <button className="bg-green-button text-white px-7 py-3 rounded-xl">
+        <button className="bg-green-button text-white px-7 py-3 rounded-xl hover:scale-105 transition-all">
           Get Started
         </button>
       </div>
