@@ -1,5 +1,5 @@
 import React from "react";
-type CardType = {
+export type CardType = {
   children: string;
   className: string;
 };
