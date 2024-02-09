@@ -56,7 +56,7 @@ const cards = [
 
 const Features = () => {
   return (
-    <div className="w-screen h-screen grid place-content-center">
+    <div className="w-screen grid place-content-center">
       <div className="flex overflow-y-scroll w-screen items-stretch h-[70vh] gap-14 px-28">
         {cards.map((item, index) => {
           return (
