@@ -1,6 +1,7 @@
 import React from "react";
 import SwiperButtons from "./SwiperButtons";
 import Card from "./Card";
+import { motion } from "framer-motion";
 
 const data = [];
 
@@ -14,7 +15,7 @@ const Services = () => {
         <SwiperButtons />
       </div>
       <div className="relative min-h-full h-full w-full overflow-hidden">
-        <div
+        <motion.div
           className="flex h-full cursor-grab active:cursor-grabbing gap-20 px-36"
           style={{ transform: `translateX(${-85.5 * 3}vw)` }}
         >
@@ -22,7 +23,7 @@ const Services = () => {
           <Card title="bbb" />
           <Card title="ccc" />
           <Card title="ddd" />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
