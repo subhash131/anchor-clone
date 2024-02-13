@@ -1,43 +1,27 @@
 import React from "react";
+import SwiperButtons from "./SwiperButtons";
+import Card from "./Card";
+
+const data = [];
 
 const Services = () => {
   return (
-    <div className="w-screen h-screen  flex justify-center">
-      <div className="flex w-[80%] justify-between h-[20%] items-center ">
+    <div className="w-screen h-screen gap-4 flex items-center flex-col pt-8">
+      <div className="flex w-[80%] justify-between h-fit items-center ">
         <p className="text-4xl w-[700px]">
           Businesses building the future of financial services with Anchor.
         </p>
-        <div className="flex h-fit gap-4 ">
-          <button className="p-6 rounded-lg bg-[#F8F8F8] ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-          </button>
-          <button className="p-6 rounded-lg bg-[#F1F9F6]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
+        <SwiperButtons />
+      </div>
+      <div className="relative min-h-full h-full w-full overflow-hidden">
+        <div
+          className="flex h-full cursor-grab active:cursor-grabbing gap-20 px-36"
+          style={{ transform: `translateX(${-85.5 * 3}vw)` }}
+        >
+          <Card title="aaa" />
+          <Card title="bbb" />
+          <Card title="ccc" />
+          <Card title="ddd" />
         </div>
       </div>
     </div>
