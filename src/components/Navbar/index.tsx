@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="py-5 px-16 sticky mt-4 top-0 flex justify-between items-center text-gray_green_mixed bg-white z-50">
       <div>
-        <p className="font-semibold text-3xl">anchor</p>
+        <p className="font-semibold text-3xl">nayak</p>
       </div>
       <ul className="flex gap-10 text-gray-600">
         {items.map((item, index) => {
