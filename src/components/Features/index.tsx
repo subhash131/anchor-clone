@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useRef, useState } from "react";
 import FeatureCard from "./FeatureCard";
+import { useMotionValueEvent, useScroll, motion } from "framer-motion";
 
 const cards = [
   {
@@ -10,6 +12,9 @@ const cards = [
     card: {
       children: "Accounts",
       className: "bg-[#22322D] text-[#CEE9DF]",
+      delay: 0.1,
+      initialTop: 0,
+      top: 350,
     },
   },
   {
@@ -20,6 +25,9 @@ const cards = [
     card: {
       children: "Payments",
       className: "bg-[#CEE9DF] text-[#22322D]",
+      delay: 0.2,
+      initialTop: 0,
+      top: 350,
     },
   },
   {
@@ -30,6 +38,9 @@ const cards = [
     card: {
       children: "Cards",
       className: "bg-[#EED9BE] text-[#D05F0C] ",
+      delay: 0.3,
+      initialTop: 0,
+      top: 350,
     },
   },
   {
@@ -40,6 +51,9 @@ const cards = [
     card: {
       children: "Credit",
       className: "bg-[#D05F0C] text-white",
+      delay: 0.4,
+      initialTop: 0,
+      top: 350,
     },
   },
   {
@@ -50,14 +64,38 @@ const cards = [
     card: {
       children: "Savings + Investment",
       className: "bg-[#22322D] text-[#CEE9DF]",
+      delay: 0.5,
+      initialTop: 0,
+      top: 350,
     },
   },
 ];
 
 const Features = () => {
+  const ref = useRef(null);
+  const { scrollY } = useScroll({
+    target: ref,
+  });
+  const [translateX, setTranslateX] = useState(800);
+  const [top, setTop] = useState(0);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 400) {
+      setTranslateX(0);
+      setTop(350);
+    }
+  });
   return (
-    <div className="w-screen grid place-content-center">
-      <div className="flex overflow-y-scroll w-screen items-stretch h-[70vh] gap-14 px-28">
+    <div className="w-screen grid place-content-center" ref={ref}>
+      <motion.div
+        className="flex overflow-y-scroll w-screen items-stretch h-[70vh] gap-14 px-28"
+        initial={{
+          translateX,
+        }}
+        animate={{
+          translateX,
+        }}
+        transition={{ type: "spring", stiffness: 150 }}
+      >
         {cards.map((item, index) => {
           return (
             <FeatureCard
@@ -66,10 +104,11 @@ const Features = () => {
               image={item.image}
               description={item.description}
               card={item.card}
+              top={top}
             ></FeatureCard>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
