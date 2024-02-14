@@ -7,15 +7,17 @@ const FeatureCard = ({
   description,
   card,
   image,
+  top,
 }: {
   className: string;
   image: string;
   card: CardType;
   description: string;
+  top: number;
 }) => {
   return (
     <div
-      className={`w-[250px] min-w-[250px] h-full rounded-2xl relative flex flex-col justify-between items-center ${className}`}
+      className={`select-none w-[250px] min-w-[250px] h-full rounded-2xl relative flex flex-col justify-between items-center shrink-0 ${className}`}
     >
       <p className="py-10 px-8 text-lg">{description}</p>
       <Image
@@ -25,7 +27,12 @@ const FeatureCard = ({
         height={100}
         className="w-full rounded-b-2xl"
       />
-      <Card className={`${card.className} bottom-8 scale-90`}>
+      <Card
+        className={`${card.className} bottom-8 scale-90`}
+        delay={card.delay}
+        initialTop={card.initialTop}
+        top={top}
+      >
         {card.children}
       </Card>
     </div>
