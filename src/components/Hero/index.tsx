@@ -4,23 +4,38 @@ import Card from "../common/Card";
 const cards = [
   {
     name: "Accounts",
-    className: "bg-[#22322D] text-[#CEE9DF] bottom-64 left-96 -rotate-6",
+    className: "bg-[#22322D] text-[#CEE9DF] left-96 -rotate-6",
+    initialTop: -200,
+    top: 330,
+    delay: 0.1,
   },
   {
     name: "Payments",
-    className: "bg-[#CEE9DF] text-[#22322D] bottom-60 right-80 rotate-3",
+    className: "bg-[#CEE9DF] text-[#22322D] right-80 rotate-3",
+    initialTop: -200,
+    top: 330,
+    delay: 0.5,
   },
   {
     name: "Cards",
-    className: "bg-[#EED9BE] text-[#D05F0C] bottom-40 rotate-3",
+    className: "bg-[#EED9BE] text-[#D05F0C] rotate-3",
+    initialTop: -200,
+    top: 430,
+    delay: 0.2,
   },
   {
     name: "Credit",
-    className: "bg-[#D05F0C] text-white bottom-16 left-96",
+    className: "bg-[#D05F0C] text-white left-96",
+    initialTop: -200,
+    top: 530,
+    delay: 0.3,
   },
   {
     name: "Savings + Investment",
-    className: "bg-[#22322D] text-[#CEE9DF] bottom-16 right-80",
+    className: "bg-[#22322D] text-[#CEE9DF] right-80",
+    initialTop: -250,
+    top: 530,
+    delay: 0.2,
   },
 ];
 
@@ -50,9 +65,15 @@ const Hero = () => {
         </div>
       </div>
       <div className="bg-blue-00 h-full w-full absolute bg--50 top-0 left-0 pointer-events-none justify-center items-center flex-col flex">
-        {cards.map(({ name, className }, index) => {
+        {cards.map(({ name, className, initialTop, top, delay }, index) => {
           return (
-            <Card className={className} key={`hero-${name}-${index}`}>
+            <Card
+              className={className}
+              key={`hero-${name}-${index}`}
+              initialTop={initialTop}
+              top={top}
+              delay={delay}
+            >
               {name}
             </Card>
           );
