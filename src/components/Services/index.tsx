@@ -52,6 +52,7 @@ const Services = () => {
           animate={{
             translateX: `${-85.5 * cardIndex}vw`,
           }}
+          transition={{ duration: 0.5 }}
           onDragStart={() => {
             setDragging(true);
           }}
